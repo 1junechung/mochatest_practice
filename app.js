@@ -1,4 +1,4 @@
-// 
+// Robot with 200 bullets and 4 phrases
 var Robot = function(){
     this.bullet =  200;
     this.phrases = ['Enemy Ahead!', 
@@ -6,26 +6,20 @@ var Robot = function(){
                   'I surrender', 
                   'I am out of bullets!'];
 };
+
+// Robot returns a random string out of 4 phrases
 Robot.prototype.talk= function(){
-    //returns a string
     let phrase = this.phrases[ Math.floor(Math.random() * this.phrases.length) ];
     console.log("Robot says:", phrase);
     return phrase;
 };
 
+// Robot shoots 50 bullets a time 
 Robot.prototype.shoot= function(){
-    //returns a number of remaining bullets
-    if( this.bullet >= 50){
         console.log("pew pew pew. 50 shots fired.");
-        this.bullet -= 50;
-    }else if( this.bullet == 0){
-        console.log('No bullet left');
-    }else{
-        let num = this.bullet;
-        console.log("pew pew. ", num, "shots fired.");
-        this.bullet -= num;
-    }
-    return this.bullet;
+        this.bullet -= 50;    
+        
+    return this.bullet; //returns a number of remaining bullets
 };
 
 let robot = new Robot();
